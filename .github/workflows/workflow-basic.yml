@@ -16,11 +16,11 @@ jobs:
             - name: Clone Source Code to runner
               uses: actions/checkout@v5
 
-            # - name: intall dependencies
-            #   run: npm i
+            - name: intall dependencies
+              run: npm i
 
-            # - name: run unit test
-            #   run: npm run test
+            - name: run unit test
+              run: npm run test
 
     build-docker-image-and-push:
         runs-on: ubuntu-latest
@@ -29,29 +29,29 @@ jobs:
             - name: Clone Source Code to runner
               uses: actions/checkout@v5
 
-            # - name: build docker image
-            #   run: docker build -t ${{ env.DOCKER_IMAGE }} .
+            - name: build docker image
+              run: docker build -t ${{ env.DOCKER_IMAGE }} .
 
               
-            # - name: tag docker image with version
-            #   run: docker tag ${{ env.DOCKER_IMAGE }} ${{ env.DOCKER_IMAGE }}:v${{ github.run_number }}
+            - name: tag docker image with version
+              run: docker tag ${{ env.DOCKER_IMAGE }} ${{ env.DOCKER_IMAGE }}:v${{ github.run_number }}
               
-            # - run: docker images
+            - run: docker images
 
-            # - run: echo ${{ vars.DOCKERHUB_USERNAME }}
-            # - run: echo ${{ secrets.DOCKERHUB_TOKEN }}
+            - run: echo ${{ vars.DOCKERHUB_USERNAME }}
+            - run: echo ${{ secrets.DOCKERHUB_TOKEN }}
 
-            # - name: Login to Docker Hub
-            #   uses: docker/login-action@v3
-            #   with:
-            #     username: ${{ vars.DOCKERHUB_USERNAME }}
-            #     password: ${{ secrets.DOCKERHUB_TOKEN }}
+            - name: Login to Docker Hub
+              uses: docker/login-action@v3
+              with:
+                username: ${{ vars.DOCKERHUB_USERNAME }}
+                password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-            # - name: Push Docker image
-            #   run: docker push ${{ env.DOCKER_IMAGE }}:v${{ github.run_number }}
+            - name: Push Docker image
+              run: docker push ${{ env.DOCKER_IMAGE }}:v${{ github.run_number }}
 
-            # - name: push docker image latest
-            #   run: docker push ${{ env.DOCKER_IMAGE }}:latest
+            - name: push docker image latest
+              run: docker push ${{ env.DOCKER_IMAGE }}:latest
 
     deploy-to-vps:
         runs-on: ubuntu-latest
@@ -65,5 +65,5 @@ jobs:
                 password: ${{ secrets.VPS_PASSWORD }}
                 script: |
                   cd /home/user/devops-script/backend-api/dev
-                  sudo docker compose pull ${{ env.DOCKER_IMAGE }}
+                  sudo docker compose pull api
                   sudo docker compose up -d --force-recreate --remove-orphans api
