@@ -44,8 +44,11 @@ jobs:
                 username: ${{ vars.DOCKERHUB_USERNAME }}
                 password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-        # - login to docker hub
-        # - push docker image
+            - name: Push Docker image
+              run: docker push talel12/api-session13:v2
+
+            - name: push docker image latest
+              run: docker push talel12/api-session13:latest
 
     # 3 deploy to vps
         # - ssh connection to vps
