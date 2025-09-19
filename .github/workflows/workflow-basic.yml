@@ -19,8 +19,12 @@ jobs:
             - name: run unit test
               run: npm run test
 
-    # 2 build docker image and push
-        # - checkout code
+    build-docker-image-and-push:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Clone Source Code to runner
+              uses: actions/checkout@v5
+              
         # - build docker image
         # - tag docker image with version
         # - login to docker hub
