@@ -10,7 +10,7 @@ jobs:
     run-unit-test-job:
         runs-on: ubuntu-latest
         steps:
-            - name: Clone Source Code
+            - name: Clone Source Code to runner
               uses: actions/checkout@v5
 
         # - checkout code
