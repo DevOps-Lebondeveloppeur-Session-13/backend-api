@@ -1,0 +1,29 @@
+name: Basic Workflow develop
+
+# trigger
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    run-unit-test-job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Clone Source Code
+              uses: actions/checkout@v5
+
+        # - checkout code
+        # - run unit test
+
+    # 2 build docker image and push
+        # - checkout code
+        # - build docker image
+        # - tag docker image with version
+        # - login to docker hub
+        # - push docker image
+
+    # 3 deploy to vps
+        # - ssh connection to vps
+        # - pull docker image
+        # - run docker container
