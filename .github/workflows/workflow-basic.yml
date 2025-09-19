@@ -31,7 +31,7 @@ jobs:
 
               
             - name: tag docker image with version
-              run: docker tag talel12/api-session13 talel12/api-session13:v2
+              run: docker tag talel12/api-session13 talel12/api-session13:v${{ github.run_number }}
               
             - run: docker images
 
