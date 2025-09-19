@@ -45,7 +45,7 @@ jobs:
                 password: ${{ secrets.DOCKERHUB_TOKEN }}
 
             - name: Push Docker image
-              run: docker push talel12/api-session13:v2
+              run: docker push talel12/api-session13:v${{ github.run_number }}
 
             - name: push docker image latest
               run: docker push talel12/api-session13:latest
