@@ -26,7 +26,10 @@ jobs:
             - name: Clone Source Code to runner
               uses: actions/checkout@v5
 
-        # - build docker image
+            - name: build docker image
+              run: docker build -t talel12/api-session13 .
+
+            - run: docker images
         # - tag docker image with version
         # - login to docker hub
         # - push docker image
