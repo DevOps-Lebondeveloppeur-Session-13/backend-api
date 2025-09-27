@@ -137,7 +137,7 @@ jobs:
 
         - name: Build Docker image
           run: |
-            docker buildx build -t ${{ env.IMAGE_NAME }} .
+            docker buildx --platform linux/amd64,linux/arm64 build -t ${{ env.IMAGE_NAME }} .
 
         - name: Run Trivy Docker image vulnerability scan
           run: |
