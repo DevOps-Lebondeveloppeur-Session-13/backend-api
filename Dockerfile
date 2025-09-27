@@ -1,5 +1,5 @@
 # Use official Node.js 14 as base image
-FROM  --platform=linux/amd64 node:18
+FROM  --platform=linux/amd64 --platform=arm64 node:18
 
 # Set working directory
 WORKDIR /usr/src/app
